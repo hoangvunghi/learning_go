@@ -1,0 +1,23 @@
+package main
+
+type DatabaseAccessor struct{
+
+}
+
+import (
+	"log"
+)
+
+func NewDatabaseAccessor(accessor *DatabaseAccessor, cleanupFunc func(),err error) {
+	return &DatabaseAccessor{}, func() {
+		// cleanup
+	}, nil
+}
+
+func main(){
+    accessor, cleanup, err := NewDatabaseAccessor()
+	if err != nil {
+		log.Fatalf("failed to create database accessor: %v", err)
+	}
+
+}
